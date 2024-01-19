@@ -2,6 +2,9 @@ import itertools
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Constants
+n_tiles = 4  # Number of times to apply developing map.
+
 
 # Mathematical helper funtions.
 
@@ -201,7 +204,7 @@ def transition_by(quad, i, j):
 base = Quadrilteral(a, b, c, d)
 
 # As they say, premature optimisation is the root of all evil.
-for ij in itertools.product(range(-3, 4), repeat=2):
+for ij in itertools.product(range(-n_tiles, n_tiles + 1), repeat=2):
     if ij != (0, 0):
         plot_quad(
             transition_by(base, *ij),
